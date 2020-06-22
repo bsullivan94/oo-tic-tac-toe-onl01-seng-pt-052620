@@ -56,41 +56,19 @@ class TicTacToe
   end
   
   def turn 
-    # ask for input
     puts "Please make a move by entering a number between 1-9"
-    # get input
     input = gets.strip
-    # translate input into index
     index = input_to_index(input)
-    # if index is valid
-    #   make the move for index
-    #   show the board
-    # else
-    #   ask for input again
-    # end
     if valid_move?(index)
       move(index, current_player)
       display_board
     else
       turn
     end
-    # index = -1
-    # until valid_move?(index)
-    #   puts "Please make a move by entering a number between 1-9"
-    #   input = gets.strip 
-    #   index = input_to_index(input)
-    #   if valid_move?(index)
-    #     move(index, current_player)
-    #     display_board
-    #   else
-    #     puts "whoops!"
-    #   end
-    # end
   end
 
   def won? 
     WIN_COMBINATIONS.find do |win_combo|
-      # will be the integer index values for the win combination we're currently checking
       position_1_index = win_combo[0]
       position_2_index = win_combo[1]
       position_3_index = win_combo[2]
